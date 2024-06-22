@@ -19,7 +19,7 @@ function App() {
  
  const [passwordVisibility, setPasswordVisibility] = useState("password")
 
- function showPassword( passwordVisibility){
+ function showPassword(passwordVisibility){
   if( passwordVisibility=="text"){
     setPasswordVisibility("password")
   }else{
@@ -38,10 +38,11 @@ function App() {
         <CardContent>
           <Input type="email" placeholder="Enter your Email" ></Input>
           <div className="flex">
-          <Input className="mt-3" type={passwordVisibility} placeholder="Password"/>
+          <Input className="mt-3 w-full" type={passwordVisibility} placeholder="Password"/>
           {
-            passwordVisibility === "password" ? <Eye onClick={()=>showPassword(passwordVisibility)}></Eye>
-            :<EyeOff onClick={()=>showPassword}></EyeOff>
+            passwordVisibility === "password" ?<EyeOff className="relative mt-5 z-10 right-8 select-none" onClick={()=>showPassword(passwordVisibility)}></EyeOff>
+            : <Eye className="relative mt-5 z-10 right-8 select-none" onClick={()=>showPassword(passwordVisibility)}></Eye>
+            
           }
           {/* <Button className="mt-3 mr- absolute" size={"icon"} onClick={()=>{
             if(passwordVisibility==="text"){
